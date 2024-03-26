@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Vaadin Router with LitElement</title>
+    <link rel="icon" href="./favicon.ico">
+</head>
+
+<body>
+    <!-- Outlet where the router will render route components -->
+    <div id="outlet"></div>
+    <script type="module">
+
+        // Import LitElement components
+        import './pages/home.js';
+        import './pages/about.js';
+
+        import { Router } from 'https://unpkg.com/@vaadin/router';
+
+        // Define your routes
+        const routes = [
+            { path: '/', component: 'home-page' },
+            { path: '/about', component: 'about-page' }
+        ];
+
+        // Register the routes with the router, specifying the outlet
+        const outlet = document.getElementById('outlet');
+        const router = new Router(outlet);
+        router.setRoutes(routes);
+
+    </script>
+</body>
+
+</html>
